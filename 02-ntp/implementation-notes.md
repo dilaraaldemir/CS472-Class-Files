@@ -1,0 +1,11 @@
+*Implementation Notes*
+
+I developed the NTP client through the implementation of functions that generate the packet, convert time, convert to network byte order, perform NTP calculations, and provide the output. The `build_ntp_request()` function initializes the NTP packet and sets the value of the Leap Indicator, version, and the client mode using the bit-field macro provided. I also set the request stratum to 0, poll value to 6, and precision to -20 according to the NTP packet format. Conversion to NTP time is done using `get_current_ntp_time()` which converts the system's Unix time to the NTP time by adding 2,208,988,800 seconds, which is the offset of the NTP epoch. The function also converts microseconds to NTP fraction of the timestamp. The functions for conversion enable the display of NTP timestamps as readable date and use as float values for calculation. I used the `htonl()` and `ntohl()` functions for converting the multi-byte NTP packet fields and timestamp parts to network byte order. The primary NTP calculation is done through the calculate_ntp_offset() function. This function does the calculation of round trip delay and offset through the use of the four times. Additionally, the function uses the root delay and dispersion to calculate dispersion.
+
+*Testing*
+
+Tests have been done using pool.ntp.org, time.nist.gov, and time.google.com. Valid replies were received from all servers. Clock offsets observed during tests were 141 ms for pool.ntp.org, 137 ms for time.nist.gov, and 138 ms for time.google.com. Different strata and network delays from different servers were used in order to validate the correctness of the parsing algorithm and four-timestamp computation. The program compiles successfully with make.
+
+*Challenges*
+
+The biggest challenges involved understanding the NTP timestamp notation and dealing with the multi-byte numbers conversion to/from host-to-network order. Four-timestamps calculation was not obvious at first as the time of transmitting message by the server cannot be treated as the client's current time due to delay in the network. Testing of several servers provided an opportunity to check the validity of computations and understand how the formulas relate to NTP protocol packets.
