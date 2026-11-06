@@ -172,7 +172,7 @@
 #include "crypto-client.h"
 #include "crypto-lib.h"
 #include "protocol.h"
-
+int client_loop(int socket_fd);
 
 /* =============================================================================
  * STUDENT TODO: IMPLEMENT THIS FUNCTION
@@ -188,14 +188,179 @@
  *   port - Server port number (e.g., 1234)
  */
 void start_client(const char* addr, int port) {
-    printf("Student TODO: Implement start_client()\n");
-    printf("  - Create TCP socket\n");
-    printf("  - Connect to %s:%d\n", addr, port);
-    printf("  - Implement communication loop\n");
-    printf("  - Close socket when done\n");
+    int sockfd;
+    struct sockaddr_in server_addr;
+    sockfd = socket(AF_INET, SOCK_STREAM, 0);
+    if (sockfd < 0) {
+        perror("socket");
+        return;
+    }
+    memset(&server_addr, 0, sizeof(server_addr));
+    server_addr.sin_family = AF_INET;
+    server_addr.sin_port = htons(port);
+    if (inet_pton(AF_INET, addr, &server_addr.sin_addr) <= 0) {
+        perror("inet_pton");
+        close(sockfd);
+        return;
+    }
+    if (connect(sockfd, (struct sockaddr *)&server_addr,
+                sizeof(server_addr)) < 0) {
+        perror("connect");
+        close(sockfd);
+        return;
+    }
+    printf("Connected to %s:%d\n", addr, port);
+    client_loop(sockfd);
+    close(sockfd);
+    printf("Disconnected from server.\n");
 }
 
+int build_packet(const msg_cmd_t *cmd, crypto_msg_t *pdu, crypto_key_t key)
+{
+    if (cmd == NULL || pdu == NULL) {
+        return -1;
+    }
+    pdu->header.msg_type = cmd->cmd_id;
+    pdu->header.direction = DIR_REQUEST;
+    pdu->header.payload_len = 0;
+    switch (cmd->cmd_id) {
+        case MSG_DATA: {
+            size_t len = strlen(cmd->cmd_line);
+            if (len > MAX_MSG_DATA_SIZE) {
+                return -1;
+            }
+            memcpy(pdu->payload, cmd->cmd_line, len);
+            pdu->header.payload_len = len;
+            break;
+        }
+        case MSG_ENCRYPTED_DATA: {
+            if (key == NULL_CRYPTO_KEY) {
+                printf("[ERROR] No session key established.\n");
+                return -1;
+            }
+            size_t len = strlen(cmd->cmd_line);
+            int result = encrypt_string(
+                key,
+                pdu->payload,
+                (uint8_t *)cmd->cmd_line,
+                len
+            );
+            if (result < 0) {
+                printf("[ERROR] Encryption failed.\n");
+                return -1;
+            }
+            pdu->header.payload_len = result;
+            break;
+        }
+        case MSG_KEY_EXCHANGE:
+        case MSG_CMD_CLIENT_STOP:
+        case MSG_CMD_SERVER_STOP:
+            break;
+        default:
+            return -1;
+    }
+    return sizeof(crypto_pdu_t) + pdu->header.payload_len;
+}
+int client_loop(int socket_fd)
+{
+    uint8_t send_buffer[BUFFER_SIZE];
+    uint8_t recv_buffer[BUFFER_SIZE];
+    char input_buffer[MAX_MSG_DATA_SIZE + 1];
+    crypto_key_t session_key = NULL_CRYPTO_KEY;
+    msg_cmd_t command;
+    while (1) {
+        int result = get_command(input_buffer, sizeof(input_buffer), &command);
+        if (result == CMD_NO_EXEC) {
+            continue;
+        }
+        int packet_size = build_packet(
+            &command,
+            (crypto_msg_t *)send_buffer,
+            session_key
+        );
+        if (packet_size < 0) {
+            printf("[ERROR] Could not build packet.\n");
+            continue;
+        }
+	crypto_msg_t *outgoing = (crypto_msg_t *)send_buffer;
+	outgoing->header.payload_len = htons(outgoing->header.payload_len);
+        int total_sent = 0;
+        while (total_sent < packet_size) {
+            int sent = send(
+                socket_fd,
+                send_buffer + total_sent,
+                packet_size - total_sent,
+                0
+            );
+            if (sent <= 0) {
+                perror("send");
+                return -1;
+            }
+            total_sent += sent;
+        }
+        if (command.cmd_id == MSG_CMD_CLIENT_STOP ||
+            command.cmd_id == MSG_CMD_SERVER_STOP) {
+            break;
+        }
+        int received = recv(socket_fd, recv_buffer, sizeof(crypto_pdu_t), MSG_WAITALL);
+        if (received <= 0) {
+            printf("[INFO] Server disconnected.\n");
+            break;
+        }
+        crypto_msg_t *response = (crypto_msg_t *)recv_buffer;
+        response->header.payload_len = ntohs(response->header.payload_len);
+	if (response->header.payload_len > MAX_MSG_DATA_SIZE) {
+            printf("[ERROR] Invalid response size.\n");
+            break;
+        }
+        int payload_len = response->header.payload_len;
+        if (payload_len > 0) {
+            received = recv(
+                socket_fd,
+                response->payload,
+                payload_len,
+                MSG_WAITALL
+            );
+            if (received <= 0) {
+                printf("[ERROR] Could not receive complete response.\n");
+                break;
+            }
+        }
+        if (response->header.msg_type == MSG_KEY_EXCHANGE) {
+            if (payload_len == sizeof(crypto_key_t)) {
+                memcpy(&session_key, response->payload, sizeof(crypto_key_t));
+                printf("[INFO] Encryption key received.\n");
+            } else {
+                printf("[ERROR] Invalid key exchange response.\n");
+            }
+        }
+        else if (response->header.msg_type == MSG_ENCRYPTED_DATA) {
+            uint8_t decrypted[MAX_MSG_SIZE];
 
+            int decrypted_len = decrypt_string(
+                session_key,
+                decrypted,
+                response->payload,
+                payload_len
+            );
+
+            if (decrypted_len >= 0) {
+                decrypted[decrypted_len] = '\0';
+                printf("%s\n", decrypted);
+            } else {
+                printf("[ERROR] Decryption failed.\n");
+            }
+        }
+        else if (payload_len > 0) {
+    		char output[MAX_MSG_SIZE + 1];
+    		memcpy(output, response->payload, payload_len);
+    		output[payload_len] = '\0';
+    		printf("%s\n", output);
+	}
+    }
+
+    return 0;
+}
 /* =============================================================================
  * PROVIDED HELPER FUNCTION: get_command()
  * =============================================================================

@@ -226,8 +226,9 @@
 #include "crypto-server.h"
 #include "crypto-lib.h"
 #include "protocol.h"
-
-
+int server_loop(int server_socket, const char* addr, int port);
+int service_client_loop(int client_socket);
+int build_response(crypto_msg_t *request, crypto_msg_t *response, crypto_key_t *client_key, crypto_key_t *server_key);
 /* =============================================================================
  * STUDENT TODO: IMPLEMENT THIS FUNCTION
  * =============================================================================
@@ -246,10 +247,282 @@
  * NOTE: If addr is "0.0.0.0", use INADDR_ANY instead of inet_pton()
  */
 void start_server(const char* addr, int port) {
-    printf("Student TODO: Implement start_server()\n");
-    printf("  - Create TCP socket\n");
-    printf("  - Bind to %s:%d\n", addr, port);
-    printf("  - Listen for connections (BACKLOG = %d)\n", BACKLOG);
-    printf("  - Accept and handle clients in a loop\n");
-    printf("  - Close socket on shutdown\n");
+    int server_socket;
+    int opt = 1;
+    struct sockaddr_in server_addr;
+
+    server_socket = socket(AF_INET, SOCK_STREAM, 0);
+    if (server_socket < 0) {
+        perror("socket");
+        return;
+    }
+
+    if (setsockopt(server_socket, SOL_SOCKET, SO_REUSEADDR,
+                   &opt, sizeof(opt)) < 0) {
+        perror("setsockopt");
+        close(server_socket);
+        return;
+    }
+
+    memset(&server_addr, 0, sizeof(server_addr));
+    server_addr.sin_family = AF_INET;
+    server_addr.sin_port = htons(port);
+
+    if (strcmp(addr, "0.0.0.0") == 0) {
+        server_addr.sin_addr.s_addr = INADDR_ANY;
+    } else {
+        if (inet_pton(AF_INET, addr, &server_addr.sin_addr) <= 0) {
+            perror("inet_pton");
+            close(server_socket);
+            return;
+        }
+    }
+
+    if (bind(server_socket, (struct sockaddr *)&server_addr,
+             sizeof(server_addr)) < 0) {
+        perror("bind");
+        close(server_socket);
+        return;
+    }
+
+    if (listen(server_socket, BACKLOG) < 0) {
+        perror("listen");
+        close(server_socket);
+        return;
+    }
+
+    printf("Server listening on %s:%d\n", addr, port);
+    server_loop(server_socket, addr, port);
+    close(server_socket);
+}
+int server_loop(int server_socket, const char* addr, int port)
+{
+    (void)addr;
+    (void)port;
+    while (1) {
+        struct sockaddr_in client_addr;
+        socklen_t addr_len = sizeof(client_addr);
+        char client_ip[INET_ADDRSTRLEN];
+
+        int client_socket = accept(
+            server_socket,
+            (struct sockaddr *)&client_addr,
+            &addr_len
+        );
+
+        if (client_socket < 0) {
+            perror("accept");
+            continue;
+        }
+
+        inet_ntop(AF_INET, &client_addr.sin_addr,
+                  client_ip, INET_ADDRSTRLEN);
+
+        printf("Client connected from %s\n", client_ip);
+
+        int result = service_client_loop(client_socket);
+
+        close(client_socket);
+
+        if (result == RC_CLIENT_REQ_SERVER_EXIT) {
+            printf("Server shutdown requested.\n");
+            return 0;
+        }
+
+        if (result == RC_CLIENT_EXITED) {
+            printf("Client disconnected.\n");
+        }
+    }
+
+    return 0;
+}
+int build_response(crypto_msg_t *request, crypto_msg_t *response,
+                   crypto_key_t *client_key, crypto_key_t *server_key)
+{
+    response->header.msg_type = request->header.msg_type;
+    response->header.direction = DIR_RESPONSE;
+    response->header.payload_len = 0;
+
+    switch (request->header.msg_type) {
+
+        case MSG_KEY_EXCHANGE:
+            if (gen_key_pair(server_key, client_key) != RC_OK) {
+                return RC_ENCRYPTION_ERR;
+            }
+
+            memcpy(response->payload, client_key, sizeof(crypto_key_t));
+            response->header.payload_len = sizeof(crypto_key_t);
+            break;
+
+        case MSG_DATA: {
+            const char prefix[] = "echo ";
+            size_t prefix_len = strlen(prefix);
+            size_t data_len = request->header.payload_len;
+
+            if (prefix_len + data_len > MAX_MSG_DATA_SIZE) {
+                return RC_MEMORY_ERR;
+            }
+
+            memcpy(response->payload, prefix, prefix_len);
+            memcpy(response->payload + prefix_len,
+                   request->payload, data_len);
+
+            response->header.payload_len = prefix_len + data_len;
+            break;
+        }
+
+        case MSG_ENCRYPTED_DATA: {
+            const char prefix[] = "echo ";
+            size_t prefix_len = strlen(prefix);
+            size_t data_len = request->header.payload_len;
+            uint8_t plaintext[MAX_MSG_DATA_SIZE];
+            uint8_t echoed[MAX_MSG_DATA_SIZE];
+
+            if (*server_key == NULL_CRYPTO_KEY) {
+                return RC_DECRYPTION_ERR;
+            }
+
+            int decrypted_len = decrypt_string(
+                *server_key, plaintext, request->payload, data_len
+            );
+
+            if (decrypted_len < 0 ||
+                prefix_len + decrypted_len > MAX_MSG_DATA_SIZE) {
+                return RC_DECRYPTION_ERR;
+            }
+
+            memcpy(echoed, prefix, prefix_len);
+            memcpy(echoed + prefix_len, plaintext, decrypted_len);
+
+            int encrypted_len = encrypt_string(
+                *server_key, response->payload,
+                echoed, prefix_len + decrypted_len
+            );
+
+            if (encrypted_len < 0 ||
+               (size_t)encrypted_len > MAX_MSG_DATA_SIZE) {
+                return RC_ENCRYPTION_ERR;
+            }
+
+            response->header.payload_len = encrypted_len;
+            break;
+        }
+
+        case MSG_CMD_CLIENT_STOP:
+        case MSG_CMD_SERVER_STOP:
+            break;
+
+        default:
+            response->header.msg_type = MSG_ERROR;
+            break;
+    }
+
+    return sizeof(crypto_pdu_t) + response->header.payload_len;
+}
+int service_client_loop(int client_socket)
+{
+    crypto_msg_t *request = malloc(BUFFER_SIZE);
+    crypto_msg_t *response = malloc(BUFFER_SIZE);
+
+    crypto_key_t client_key = NULL_CRYPTO_KEY;
+    crypto_key_t server_key = NULL_CRYPTO_KEY;
+
+    if (request == NULL || response == NULL) {
+        perror("malloc");
+        free(request);
+        free(response);
+        return RC_MEMORY_ERR;
+    }
+
+    while (1) {
+        size_t received = 0;
+        size_t header_size = sizeof(crypto_pdu_t);
+
+        while (received < header_size) {
+            ssize_t bytes = recv(
+                client_socket,
+                (char *)&request->header + received,
+                header_size - received,
+                0
+            );
+
+            if (bytes <= 0) {
+                free(request);
+                free(response);
+                return RC_CLIENT_EXITED;
+            }
+
+            received += bytes;
+        }
+	request->header.payload_len = ntohs(request->header.payload_len);
+        if (request->header.payload_len > MAX_MSG_DATA_SIZE) {
+            free(request);
+            free(response);
+            return RC_MEMORY_ERR;
+        }
+
+        received = 0;
+
+        while (received < request->header.payload_len) {
+            ssize_t bytes = recv(
+                client_socket,
+                request->payload + received,
+                request->header.payload_len - received,
+                0
+            );
+
+            if (bytes <= 0) {
+                free(request);
+                free(response);
+                return RC_CLIENT_EXITED;
+            }
+
+            received += bytes;
+        }
+
+        if (request->header.msg_type == MSG_CMD_CLIENT_STOP) {
+            free(request);
+            free(response);
+            return RC_CLIENT_EXITED;
+        }
+
+        if (request->header.msg_type == MSG_CMD_SERVER_STOP) {
+            free(request);
+            free(response);
+            return RC_CLIENT_REQ_SERVER_EXIT;
+        }
+
+        int response_size = build_response(
+            request, response, &client_key, &server_key
+        );
+
+        if (response_size < 0) {
+            free(request);
+            free(response);
+            return response_size;
+        }
+	response->header.payload_len = htons(response->header.payload_len);
+        size_t sent = 0;
+
+        while (sent < (size_t)response_size) {
+            ssize_t bytes = send(
+                client_socket,
+                (char *)response + sent,
+                response_size - sent,
+                0
+            );
+
+            if (bytes <= 0) {
+                free(request);
+                free(response);
+                return RC_CLIENT_EXITED;
+            }
+
+            sent += bytes;
+        }
+    }
+
+    free(request);
+    free(response);
+    return RC_CLIENT_EXITED;
 }
