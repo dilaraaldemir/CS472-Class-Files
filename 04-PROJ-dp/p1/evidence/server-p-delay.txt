@@ -1,0 +1,421 @@
+dp-server: network logging enabled (-v).
+dp-server: listening on UDP 9000
+dp-server: NET: 1795225453.407450 IN  CONNECT     pkt=0 bytes=28
+dp-server: NET: 1795225453.407502 OUT CONN_ACK    pkt=0 bytes=28 delay=26ms
+dp-server: accepted cid=201684
+dp-server: NET: 1795225453.470163 IN  DATA        pkt=1 bytes=508
+dp-server: NET: 1795225453.470234 OUT ACK         pkt=1 bytes=28 delay=17ms
+dp-server: NET: 1795225453.503014 IN  DATA        pkt=2 bytes=508
+dp-server: NET: 1795225453.503099 OUT ACK         pkt=2 bytes=28 delay=30ms
+dp-server: NET: 1795225453.538482 IN  DATA        pkt=3 bytes=508
+dp-server: NET: 1795225453.538528 OUT ACK         pkt=3 bytes=28 delay=7ms
+dp-server: NET: 1795225453.581617 IN  DATA        pkt=4 bytes=508
+dp-server: NET: 1795225453.581681 OUT ACK         pkt=4 bytes=28 delay=11ms
+dp-server: NET: 1795225453.602028 IN  DATA        pkt=5 bytes=508
+dp-server: NET: 1795225453.602066 OUT ACK         pkt=5 bytes=28 delay=1ms
+dp-server: NET: 1795225453.619829 IN  DATA        pkt=6 bytes=508
+dp-server: NET: 1795225453.619870 OUT ACK         pkt=6 bytes=28 delay=7ms
+dp-server: NET: 1795225453.636697 IN  DATA        pkt=7 bytes=508
+dp-server: NET: 1795225453.636758 OUT ACK         pkt=7 bytes=28 delay=1ms
+dp-server: NET: 1795225453.665982 IN  DATA        pkt=8 bytes=508
+dp-server: NET: 1795225453.666023 OUT ACK         pkt=8 bytes=28 delay=12ms
+dp-server: NET: 1795225453.698885 IN  DATA        pkt=9 bytes=508
+dp-server: NET: 1795225453.698940 OUT ACK         pkt=9 bytes=28 delay=7ms
+dp-server: NET: 1795225453.736999 IN  DATA        pkt=10 bytes=508
+dp-server: NET: 1795225453.737057 OUT ACK         pkt=10 bytes=28 delay=14ms
+dp-server: NET: 1795225453.776963 IN  DATA        pkt=11 bytes=508
+dp-server: NET: 1795225453.777003 OUT ACK         pkt=11 bytes=28 delay=21ms
+dp-server: NET: 1795225453.821145 IN  DATA        pkt=12 bytes=508
+dp-server: NET: 1795225453.821189 OUT ACK         pkt=12 bytes=28 delay=19ms
+dp-server: NET: 1795225453.847785 IN  DATA        pkt=13 bytes=508
+dp-server: NET: 1795225453.847830 OUT ACK         pkt=13 bytes=28 delay=20ms
+dp-server: NET: 1795225453.873059 IN  DATA        pkt=14 bytes=508
+dp-server: NET: 1795225453.873100 OUT ACK         pkt=14 bytes=28 delay=15ms
+dp-server: NET: 1795225453.903327 IN  DATA        pkt=15 bytes=508
+dp-server: NET: 1795225453.903367 OUT ACK         pkt=15 bytes=28 delay=22ms
+dp-server: NET: 1795225453.949372 IN  DATA        pkt=16 bytes=508
+dp-server: NET: 1795225453.949428 OUT ACK         pkt=16 bytes=28 delay=18ms
+dp-server: NET: 1795225453.980991 IN  DATA        pkt=17 bytes=508
+dp-server: NET: 1795225453.981030 OUT ACK         pkt=17 bytes=28 delay=21ms
+dp-server: NET: 1795225454.007318 IN  DATA        pkt=18 bytes=508
+dp-server: NET: 1795225454.007365 OUT ACK         pkt=18 bytes=28
+dp-server: NET: 1795225454.008820 IN  DATA        pkt=19 bytes=508
+dp-server: NET: 1795225454.008855 OUT ACK         pkt=19 bytes=28 delay=18ms
+dp-server: NET: 1795225454.057682 IN  DATA        pkt=20 bytes=508
+dp-server: NET: 1795225454.057735 OUT ACK         pkt=20 bytes=28 delay=29ms
+dp-server: NET: 1795225454.119159 IN  DATA        pkt=21 bytes=508
+dp-server: NET: 1795225454.119227 OUT ACK         pkt=21 bytes=28 delay=13ms
+dp-server: NET: 1795225454.170108 IN  DATA        pkt=22 bytes=508
+dp-server: NET: 1795225454.170152 OUT ACK         pkt=22 bytes=28 delay=12ms
+dp-server: NET: 1795225454.213928 IN  DATA        pkt=23 bytes=508
+dp-server: NET: 1795225454.214001 OUT ACK         pkt=23 bytes=28 delay=15ms
+dp-server: NET: 1795225454.263040 IN  DATA        pkt=24 bytes=508
+dp-server: NET: 1795225454.263091 OUT ACK         pkt=24 bytes=28 delay=16ms
+dp-server: NET: 1795225454.300925 IN  DATA        pkt=25 bytes=508
+dp-server: NET: 1795225454.300990 OUT ACK         pkt=25 bytes=28
+dp-server: NET: 1795225454.308791 IN  DATA        pkt=26 bytes=508
+dp-server: NET: 1795225454.308854 OUT ACK         pkt=26 bytes=28
+dp-server: NET: 1795225454.322833 IN  DATA        pkt=27 bytes=508
+dp-server: NET: 1795225454.322872 OUT ACK         pkt=27 bytes=28 delay=3ms
+dp-server: NET: 1795225454.339439 IN  DATA        pkt=28 bytes=508
+dp-server: NET: 1795225454.339491 OUT ACK         pkt=28 bytes=28 delay=18ms
+dp-server: NET: 1795225454.360297 IN  DATA        pkt=29 bytes=508
+dp-server: NET: 1795225454.360328 OUT ACK         pkt=29 bytes=28
+dp-server: NET: 1795225454.380375 IN  DATA        pkt=30 bytes=508
+dp-server: NET: 1795225454.380448 OUT ACK         pkt=30 bytes=28 delay=16ms
+dp-server: NET: 1795225454.423237 IN  DATA        pkt=31 bytes=508
+dp-server: NET: 1795225454.423269 OUT ACK         pkt=31 bytes=28 delay=16ms
+dp-server: NET: 1795225454.459848 IN  DATA        pkt=32 bytes=508
+dp-server: NET: 1795225454.459906 OUT ACK         pkt=32 bytes=28 delay=24ms
+dp-server: NET: 1795225454.494739 IN  DATA        pkt=33 bytes=508
+dp-server: NET: 1795225454.494782 OUT ACK         pkt=33 bytes=28 delay=26ms
+dp-server: NET: 1795225454.548618 IN  DATA        pkt=34 bytes=508
+dp-server: NET: 1795225454.548651 OUT ACK         pkt=34 bytes=28 delay=27ms
+dp-server: NET: 1795225454.583462 IN  DATA        pkt=35 bytes=508
+dp-server: NET: 1795225454.583519 OUT ACK         pkt=35 bytes=28 delay=14ms
+dp-server: NET: 1795225454.608822 IN  DATA        pkt=36 bytes=508
+dp-server: NET: 1795225454.608857 OUT ACK         pkt=36 bytes=28 delay=27ms
+dp-server: NET: 1795225454.657644 IN  DATA        pkt=37 bytes=508
+dp-server: NET: 1795225454.657704 OUT ACK         pkt=37 bytes=28 delay=15ms
+dp-server: NET: 1795225454.707759 IN  DATA        pkt=38 bytes=508
+dp-server: NET: 1795225454.707807 OUT ACK         pkt=38 bytes=28 delay=24ms
+dp-server: NET: 1795225454.738537 IN  DATA        pkt=39 bytes=508
+dp-server: NET: 1795225454.738595 OUT ACK         pkt=39 bytes=28 delay=24ms
+dp-server: NET: 1795225454.770022 IN  DATA        pkt=40 bytes=508
+dp-server: NET: 1795225454.770070 OUT ACK         pkt=40 bytes=28 delay=23ms
+dp-server: NET: 1795225454.825725 IN  DATA        pkt=41 bytes=508
+dp-server: NET: 1795225454.825765 OUT ACK         pkt=41 bytes=28 delay=16ms
+dp-server: NET: 1795225454.857323 IN  DATA        pkt=42 bytes=508
+dp-server: NET: 1795225454.857364 OUT ACK         pkt=42 bytes=28 delay=4ms
+dp-server: NET: 1795225454.882656 IN  DATA        pkt=43 bytes=508
+dp-server: NET: 1795225454.882701 OUT ACK         pkt=43 bytes=28 delay=14ms
+dp-server: NET: 1795225454.919173 IN  DATA        pkt=44 bytes=508
+dp-server: NET: 1795225454.919205 OUT ACK         pkt=44 bytes=28 delay=7ms
+dp-server: NET: 1795225454.953207 IN  DATA        pkt=45 bytes=508
+dp-server: NET: 1795225454.953256 OUT ACK         pkt=45 bytes=28 delay=12ms
+dp-server: NET: 1795225454.992321 IN  DATA        pkt=46 bytes=508
+dp-server: NET: 1795225454.992365 OUT ACK         pkt=46 bytes=28 delay=6ms
+dp-server: NET: 1795225455.000077 IN  DATA        pkt=47 bytes=508
+dp-server: NET: 1795225455.000106 OUT ACK         pkt=47 bytes=28 delay=13ms
+dp-server: NET: 1795225455.024197 IN  DATA        pkt=48 bytes=508
+dp-server: NET: 1795225455.024236 OUT ACK         pkt=48 bytes=28 delay=22ms
+dp-server: NET: 1795225455.078526 IN  DATA        pkt=49 bytes=508
+dp-server: NET: 1795225455.078577 OUT ACK         pkt=49 bytes=28 delay=14ms
+dp-server: NET: 1795225455.124537 IN  DATA        pkt=50 bytes=508
+dp-server: NET: 1795225455.124586 OUT ACK         pkt=50 bytes=28 delay=16ms
+dp-server: NET: 1795225455.153606 IN  DATA        pkt=51 bytes=508
+dp-server: NET: 1795225455.153641 OUT ACK         pkt=51 bytes=28 delay=26ms
+dp-server: NET: 1795225455.219108 IN  DATA        pkt=52 bytes=508
+dp-server: NET: 1795225455.219199 OUT ACK         pkt=52 bytes=28 delay=24ms
+dp-server: NET: 1795225455.267308 IN  DATA        pkt=53 bytes=508
+dp-server: NET: 1795225455.267348 OUT ACK         pkt=53 bytes=28 delay=5ms
+dp-server: NET: 1795225455.287055 IN  DATA        pkt=54 bytes=508
+dp-server: NET: 1795225455.287082 OUT ACK         pkt=54 bytes=28 delay=1ms
+dp-server: NET: 1795225455.299833 IN  DATA        pkt=55 bytes=508
+dp-server: NET: 1795225455.299859 OUT ACK         pkt=55 bytes=28 delay=27ms
+dp-server: NET: 1795225455.340775 IN  DATA        pkt=56 bytes=508
+dp-server: NET: 1795225455.340826 OUT ACK         pkt=56 bytes=28 delay=18ms
+dp-server: NET: 1795225455.398678 IN  DATA        pkt=57 bytes=508
+dp-server: NET: 1795225455.398714 OUT ACK         pkt=57 bytes=28 delay=20ms
+dp-server: NET: 1795225455.427725 IN  DATA        pkt=58 bytes=508
+dp-server: NET: 1795225455.427754 OUT ACK         pkt=58 bytes=28 delay=6ms
+dp-server: NET: 1795225455.446702 IN  DATA        pkt=59 bytes=508
+dp-server: NET: 1795225455.446731 OUT ACK         pkt=59 bytes=28 delay=11ms
+dp-server: NET: 1795225455.470733 IN  DATA        pkt=60 bytes=508
+dp-server: NET: 1795225455.470764 OUT ACK         pkt=60 bytes=28
+dp-server: NET: 1795225455.483444 IN  DATA        pkt=61 bytes=508
+dp-server: NET: 1795225455.483471 OUT ACK         pkt=61 bytes=28 delay=20ms
+dp-server: NET: 1795225455.513790 IN  DATA        pkt=62 bytes=508
+dp-server: NET: 1795225455.513822 OUT ACK         pkt=62 bytes=28 delay=12ms
+dp-server: NET: 1795225455.537844 IN  DATA        pkt=63 bytes=508
+dp-server: NET: 1795225455.537872 OUT ACK         pkt=63 bytes=28 delay=18ms
+dp-server: NET: 1795225455.577910 IN  DATA        pkt=64 bytes=508
+dp-server: NET: 1795225455.577958 OUT ACK         pkt=64 bytes=28 delay=24ms
+dp-server: NET: 1795225455.621093 IN  DATA        pkt=65 bytes=508
+dp-server: NET: 1795225455.621136 OUT ACK         pkt=65 bytes=28 delay=27ms
+dp-server: NET: 1795225455.657193 IN  DATA        pkt=66 bytes=508
+dp-server: NET: 1795225455.657223 OUT ACK         pkt=66 bytes=28 delay=15ms
+dp-server: NET: 1795225455.693219 IN  DATA        pkt=67 bytes=508
+dp-server: NET: 1795225455.693282 OUT ACK         pkt=67 bytes=28 delay=17ms
+dp-server: NET: 1795225455.718650 IN  DATA        pkt=68 bytes=508
+dp-server: NET: 1795225455.718688 OUT ACK         pkt=68 bytes=28 delay=30ms
+dp-server: NET: 1795225455.756605 IN  DATA        pkt=69 bytes=508
+dp-server: NET: 1795225455.756670 OUT ACK         pkt=69 bytes=28 delay=29ms
+dp-server: NET: 1795225455.801012 IN  DATA        pkt=70 bytes=508
+dp-server: NET: 1795225455.801047 OUT ACK         pkt=70 bytes=28 delay=10ms
+dp-server: NET: 1795225455.830270 IN  DATA        pkt=71 bytes=508
+dp-server: NET: 1795225455.830307 OUT ACK         pkt=71 bytes=28 delay=6ms
+dp-server: NET: 1795225455.867088 IN  DATA        pkt=72 bytes=508
+dp-server: NET: 1795225455.867131 OUT ACK         pkt=72 bytes=28 delay=15ms
+dp-server: NET: 1795225455.908756 IN  DATA        pkt=73 bytes=508
+dp-server: NET: 1795225455.908787 OUT ACK         pkt=73 bytes=28 delay=26ms
+dp-server: NET: 1795225455.951263 IN  DATA        pkt=74 bytes=508
+dp-server: NET: 1795225455.951300 OUT ACK         pkt=74 bytes=28
+dp-server: NET: 1795225455.973986 IN  DATA        pkt=75 bytes=508
+dp-server: NET: 1795225455.974025 OUT ACK         pkt=75 bytes=28 delay=17ms
+dp-server: NET: 1795225456.009077 IN  DATA        pkt=76 bytes=508
+dp-server: NET: 1795225456.009142 OUT ACK         pkt=76 bytes=28 delay=19ms
+dp-server: NET: 1795225456.043158 IN  DATA        pkt=77 bytes=508
+dp-server: NET: 1795225456.043193 OUT ACK         pkt=77 bytes=28 delay=2ms
+dp-server: NET: 1795225456.069699 IN  DATA        pkt=78 bytes=508
+dp-server: NET: 1795225456.069765 OUT ACK         pkt=78 bytes=28 delay=28ms
+dp-server: NET: 1795225456.113074 IN  DATA        pkt=79 bytes=508
+dp-server: NET: 1795225456.113116 OUT ACK         pkt=79 bytes=28 delay=13ms
+dp-server: NET: 1795225456.135838 IN  DATA        pkt=80 bytes=508
+dp-server: NET: 1795225456.135870 OUT ACK         pkt=80 bytes=28 delay=18ms
+dp-server: NET: 1795225456.161125 IN  DATA        pkt=81 bytes=508
+dp-server: NET: 1795225456.161159 OUT ACK         pkt=81 bytes=28 delay=25ms
+dp-server: NET: 1795225456.195123 IN  DATA        pkt=82 bytes=508
+dp-server: NET: 1795225456.195153 OUT ACK         pkt=82 bytes=28 delay=29ms
+dp-server: NET: 1795225456.263432 IN  DATA        pkt=83 bytes=508
+dp-server: NET: 1795225456.263471 OUT ACK         pkt=83 bytes=28
+dp-server: NET: 1795225456.269940 IN  DATA        pkt=84 bytes=508
+dp-server: NET: 1795225456.269977 OUT ACK         pkt=84 bytes=28
+dp-server: NET: 1795225456.272768 IN  DATA        pkt=85 bytes=508
+dp-server: NET: 1795225456.272814 OUT ACK         pkt=85 bytes=28 delay=1ms
+dp-server: NET: 1795225456.279249 IN  DATA        pkt=86 bytes=508
+dp-server: NET: 1795225456.279277 OUT ACK         pkt=86 bytes=28 delay=16ms
+dp-server: NET: 1795225456.314506 IN  DATA        pkt=87 bytes=508
+dp-server: NET: 1795225456.314547 OUT ACK         pkt=87 bytes=28 delay=14ms
+dp-server: NET: 1795225456.351089 IN  DATA        pkt=88 bytes=508
+dp-server: NET: 1795225456.351144 OUT ACK         pkt=88 bytes=28 delay=25ms
+dp-server: NET: 1795225456.393995 IN  DATA        pkt=89 bytes=508
+dp-server: NET: 1795225456.394037 OUT ACK         pkt=89 bytes=28
+dp-server: NET: 1795225456.419239 IN  DATA        pkt=90 bytes=508
+dp-server: NET: 1795225456.419269 OUT ACK         pkt=90 bytes=28 delay=14ms
+dp-server: NET: 1795225456.440729 IN  DATA        pkt=91 bytes=508
+dp-server: NET: 1795225456.440756 OUT ACK         pkt=91 bytes=28 delay=16ms
+dp-server: NET: 1795225456.471031 IN  DATA        pkt=92 bytes=508
+dp-server: NET: 1795225456.471065 OUT ACK         pkt=92 bytes=28 delay=12ms
+dp-server: NET: 1795225456.500084 IN  DATA        pkt=93 bytes=508
+dp-server: NET: 1795225456.500114 OUT ACK         pkt=93 bytes=28 delay=4ms
+dp-server: NET: 1795225456.533471 IN  DATA        pkt=94 bytes=508
+dp-server: NET: 1795225456.533505 OUT ACK         pkt=94 bytes=28 delay=7ms
+dp-server: NET: 1795225456.564712 IN  DATA        pkt=95 bytes=508
+dp-server: NET: 1795225456.564772 OUT ACK         pkt=95 bytes=28 delay=12ms
+dp-server: NET: 1795225456.608142 IN  DATA        pkt=96 bytes=508
+dp-server: NET: 1795225456.608197 OUT ACK         pkt=96 bytes=28 delay=5ms
+dp-server: NET: 1795225456.615930 IN  DATA        pkt=97 bytes=508
+dp-server: NET: 1795225456.615962 OUT ACK         pkt=97 bytes=28 delay=12ms
+dp-server: NET: 1795225456.656045 IN  DATA        pkt=98 bytes=508
+dp-server: NET: 1795225456.656076 OUT ACK         pkt=98 bytes=28 delay=2ms
+dp-server: NET: 1795225456.687235 IN  DATA        pkt=99 bytes=508
+dp-server: NET: 1795225456.687291 OUT ACK         pkt=99 bytes=28 delay=19ms
+dp-server: NET: 1795225456.737202 IN  DATA        pkt=100 bytes=508
+dp-server: NET: 1795225456.737261 OUT ACK         pkt=100 bytes=28 delay=11ms
+dp-server: NET: 1795225456.758848 IN  DATA        pkt=101 bytes=508
+dp-server: NET: 1795225456.758891 OUT ACK         pkt=101 bytes=28 delay=5ms
+dp-server: NET: 1795225456.787279 IN  DATA        pkt=102 bytes=508
+dp-server: NET: 1795225456.787313 OUT ACK         pkt=102 bytes=28 delay=8ms
+dp-server: NET: 1795225456.821437 IN  DATA        pkt=103 bytes=508
+dp-server: NET: 1795225456.821509 OUT ACK         pkt=103 bytes=28 delay=21ms
+dp-server: NET: 1795225456.872891 IN  DATA        pkt=104 bytes=508
+dp-server: NET: 1795225456.872930 OUT ACK         pkt=104 bytes=28 delay=14ms
+dp-server: NET: 1795225456.905702 IN  DATA        pkt=105 bytes=508
+dp-server: NET: 1795225456.905736 OUT ACK         pkt=105 bytes=28 delay=9ms
+dp-server: NET: 1795225456.922187 IN  DATA        pkt=106 bytes=508
+dp-server: NET: 1795225456.922217 OUT ACK         pkt=106 bytes=28 delay=25ms
+dp-server: NET: 1795225456.982126 IN  DATA        pkt=107 bytes=508
+dp-server: NET: 1795225456.982167 OUT ACK         pkt=107 bytes=28 delay=26ms
+dp-server: NET: 1795225457.024212 IN  DATA        pkt=108 bytes=508
+dp-server: NET: 1795225457.024249 OUT ACK         pkt=108 bytes=28 delay=3ms
+dp-server: NET: 1795225457.035759 IN  DATA        pkt=109 bytes=508
+dp-server: NET: 1795225457.035790 OUT ACK         pkt=109 bytes=28 delay=27ms
+dp-server: NET: 1795225457.068494 IN  DATA        pkt=110 bytes=508
+dp-server: NET: 1795225457.068528 OUT ACK         pkt=110 bytes=28 delay=30ms
+dp-server: NET: 1795225457.130961 IN  DATA        pkt=111 bytes=508
+dp-server: NET: 1795225457.131005 OUT ACK         pkt=111 bytes=28 delay=12ms
+dp-server: NET: 1795225457.170380 IN  DATA        pkt=112 bytes=508
+dp-server: NET: 1795225457.170414 OUT ACK         pkt=112 bytes=28 delay=8ms
+dp-server: NET: 1795225457.209057 IN  DATA        pkt=113 bytes=508
+dp-server: NET: 1795225457.209112 OUT ACK         pkt=113 bytes=28 delay=2ms
+dp-server: NET: 1795225457.239969 IN  DATA        pkt=114 bytes=508
+dp-server: NET: 1795225457.240010 OUT ACK         pkt=114 bytes=28 delay=18ms
+dp-server: NET: 1795225457.265386 IN  DATA        pkt=115 bytes=508
+dp-server: NET: 1795225457.265424 OUT ACK         pkt=115 bytes=28 delay=7ms
+dp-server: NET: 1795225457.300537 IN  DATA        pkt=116 bytes=508
+dp-server: NET: 1795225457.300577 OUT ACK         pkt=116 bytes=28 delay=17ms
+dp-server: NET: 1795225457.342166 IN  DATA        pkt=117 bytes=508
+dp-server: NET: 1795225457.342206 OUT ACK         pkt=117 bytes=28 delay=29ms
+dp-server: NET: 1795225457.390008 IN  DATA        pkt=118 bytes=508
+dp-server: NET: 1795225457.390046 OUT ACK         pkt=118 bytes=28 delay=25ms
+dp-server: NET: 1795225457.453378 IN  DATA        pkt=119 bytes=508
+dp-server: NET: 1795225457.453442 OUT ACK         pkt=119 bytes=28 delay=3ms
+dp-server: NET: 1795225457.482577 IN  DATA        pkt=120 bytes=508
+dp-server: NET: 1795225457.482660 OUT ACK         pkt=120 bytes=28 delay=12ms
+dp-server: NET: 1795225457.500423 IN  DATA        pkt=121 bytes=508
+dp-server: NET: 1795225457.500452 OUT ACK         pkt=121 bytes=28 delay=12ms
+dp-server: NET: 1795225457.536901 IN  DATA        pkt=122 bytes=508
+dp-server: NET: 1795225457.536928 OUT ACK         pkt=122 bytes=28 delay=21ms
+dp-server: NET: 1795225457.594254 IN  DATA        pkt=123 bytes=508
+dp-server: NET: 1795225457.594302 OUT ACK         pkt=123 bytes=28 delay=18ms
+dp-server: NET: 1795225457.628399 IN  DATA        pkt=124 bytes=508
+dp-server: NET: 1795225457.628431 OUT ACK         pkt=124 bytes=28 delay=2ms
+dp-server: NET: 1795225457.638651 IN  DATA        pkt=125 bytes=508
+dp-server: NET: 1795225457.638680 OUT ACK         pkt=125 bytes=28 delay=1ms
+dp-server: NET: 1795225457.665192 IN  DATA        pkt=126 bytes=508
+dp-server: NET: 1795225457.665222 OUT ACK         pkt=126 bytes=28 delay=27ms
+dp-server: NET: 1795225457.730536 IN  DATA        pkt=127 bytes=508
+dp-server: NET: 1795225457.732654 OUT ACK         pkt=127 bytes=28
+dp-server: NET: 1795225457.740458 IN  DATA        pkt=128 bytes=508
+dp-server: NET: 1795225457.740487 OUT ACK         pkt=128 bytes=28 delay=5ms
+dp-server: NET: 1795225457.765751 IN  DATA        pkt=129 bytes=508
+dp-server: NET: 1795225457.765785 OUT ACK         pkt=129 bytes=28 delay=10ms
+dp-server: NET: 1795225457.803563 IN  DATA        pkt=130 bytes=508
+dp-server: NET: 1795225457.803608 OUT ACK         pkt=130 bytes=28 delay=20ms
+dp-server: NET: 1795225457.847307 IN  DATA        pkt=131 bytes=508
+dp-server: NET: 1795225457.847364 OUT ACK         pkt=131 bytes=28 delay=18ms
+dp-server: NET: 1795225457.899643 IN  DATA        pkt=132 bytes=508
+dp-server: NET: 1795225457.899697 OUT ACK         pkt=132 bytes=28 delay=7ms
+dp-server: NET: 1795225457.922544 IN  DATA        pkt=133 bytes=508
+dp-server: NET: 1795225457.922583 OUT ACK         pkt=133 bytes=28 delay=12ms
+dp-server: NET: 1795225457.939081 IN  DATA        pkt=134 bytes=508
+dp-server: NET: 1795225457.939125 OUT ACK         pkt=134 bytes=28 delay=9ms
+dp-server: NET: 1795225457.951810 IN  DATA        pkt=135 bytes=508
+dp-server: NET: 1795225457.951834 OUT ACK         pkt=135 bytes=28 delay=14ms
+dp-server: NET: 1795225457.979597 IN  DATA        pkt=136 bytes=508
+dp-server: NET: 1795225457.979629 OUT ACK         pkt=136 bytes=28 delay=11ms
+dp-server: NET: 1795225458.012843 IN  DATA        pkt=137 bytes=508
+dp-server: NET: 1795225458.012918 OUT ACK         pkt=137 bytes=28 delay=3ms
+dp-server: NET: 1795225458.043998 IN  DATA        pkt=138 bytes=508
+dp-server: NET: 1795225458.044032 OUT ACK         pkt=138 bytes=28 delay=18ms
+dp-server: NET: 1795225458.073070 IN  DATA        pkt=139 bytes=508
+dp-server: NET: 1795225458.073098 OUT ACK         pkt=139 bytes=28 delay=9ms
+dp-server: NET: 1795225458.097096 IN  DATA        pkt=140 bytes=508
+dp-server: NET: 1795225458.097173 OUT ACK         pkt=140 bytes=28 delay=21ms
+dp-server: NET: 1795225458.146005 IN  DATA        pkt=141 bytes=508
+dp-server: NET: 1795225458.146039 OUT ACK         pkt=141 bytes=28 delay=27ms
+dp-server: NET: 1795225458.203416 IN  DATA        pkt=142 bytes=508
+dp-server: NET: 1795225458.203483 OUT ACK         pkt=142 bytes=28 delay=25ms
+dp-server: NET: 1795225458.255740 IN  DATA        pkt=143 bytes=508
+dp-server: NET: 1795225458.255774 OUT ACK         pkt=143 bytes=28 delay=18ms
+dp-server: NET: 1795225458.282290 IN  DATA        pkt=144 bytes=508
+dp-server: NET: 1795225458.282317 OUT ACK         pkt=144 bytes=28 delay=11ms
+dp-server: NET: 1795225458.323444 IN  DATA        pkt=145 bytes=508
+dp-server: NET: 1795225458.323506 OUT ACK         pkt=145 bytes=28 delay=21ms
+dp-server: NET: 1795225458.377854 IN  DATA        pkt=146 bytes=508
+dp-server: NET: 1795225458.377891 OUT ACK         pkt=146 bytes=28 delay=10ms
+dp-server: NET: 1795225458.399414 IN  DATA        pkt=147 bytes=508
+dp-server: NET: 1795225458.399461 OUT ACK         pkt=147 bytes=28 delay=15ms
+dp-server: NET: 1795225458.445439 IN  DATA        pkt=148 bytes=508
+dp-server: NET: 1795225458.445479 OUT ACK         pkt=148 bytes=28 delay=3ms
+dp-server: NET: 1795225458.454474 IN  DATA        pkt=149 bytes=508
+dp-server: NET: 1795225458.454506 OUT ACK         pkt=149 bytes=28 delay=4ms
+dp-server: NET: 1795225458.459679 IN  DATA        pkt=150 bytes=508
+dp-server: NET: 1795225458.459707 OUT ACK         pkt=150 bytes=28 delay=17ms
+dp-server: NET: 1795225458.494996 IN  DATA        pkt=151 bytes=508
+dp-server: NET: 1795225458.495030 OUT ACK         pkt=151 bytes=28 delay=21ms
+dp-server: NET: 1795225458.525077 IN  DATA        pkt=152 bytes=508
+dp-server: NET: 1795225458.525106 OUT ACK         pkt=152 bytes=28 delay=4ms
+dp-server: NET: 1795225458.539064 IN  DATA        pkt=153 bytes=508
+dp-server: NET: 1795225458.539092 OUT ACK         pkt=153 bytes=28 delay=16ms
+dp-server: NET: 1795225458.586926 IN  DATA        pkt=154 bytes=508
+dp-server: NET: 1795225458.586968 OUT ACK         pkt=154 bytes=28 delay=10ms
+dp-server: NET: 1795225458.628774 IN  DATA        pkt=155 bytes=508
+dp-server: NET: 1795225458.628808 OUT ACK         pkt=155 bytes=28 delay=19ms
+dp-server: NET: 1795225458.667866 IN  DATA        pkt=156 bytes=508
+dp-server: NET: 1795225458.667904 OUT ACK         pkt=156 bytes=28 delay=17ms
+dp-server: NET: 1795225458.723546 IN  DATA        pkt=157 bytes=508
+dp-server: NET: 1795225458.723603 OUT ACK         pkt=157 bytes=28 delay=29ms
+dp-server: NET: 1795225458.772874 IN  DATA        pkt=158 bytes=508
+dp-server: NET: 1795225458.772913 OUT ACK         pkt=158 bytes=28 delay=27ms
+dp-server: NET: 1795225458.817558 IN  DATA        pkt=159 bytes=508
+dp-server: NET: 1795225458.817610 OUT ACK         pkt=159 bytes=28 delay=23ms
+dp-server: NET: 1795225458.851511 IN  DATA        pkt=160 bytes=508
+dp-server: NET: 1795225458.851550 OUT ACK         pkt=160 bytes=28 delay=5ms
+dp-server: NET: 1795225458.876828 IN  DATA        pkt=161 bytes=508
+dp-server: NET: 1795225458.876857 OUT ACK         pkt=161 bytes=28 delay=24ms
+dp-server: NET: 1795225458.940275 IN  DATA        pkt=162 bytes=508
+dp-server: NET: 1795225458.940344 OUT ACK         pkt=162 bytes=28 delay=30ms
+dp-server: NET: 1795225458.992669 IN  DATA        pkt=163 bytes=508
+dp-server: NET: 1795225458.992701 OUT ACK         pkt=163 bytes=28 delay=28ms
+dp-server: NET: 1795225459.056137 IN  DATA        pkt=164 bytes=508
+dp-server: NET: 1795225459.056202 OUT ACK         pkt=164 bytes=28 delay=18ms
+dp-server: NET: 1795225459.101550 IN  DATA        pkt=165 bytes=508
+dp-server: NET: 1795225459.101594 OUT ACK         pkt=165 bytes=28 delay=4ms
+dp-server: NET: 1795225459.130239 IN  DATA        pkt=166 bytes=508
+dp-server: NET: 1795225459.130270 OUT ACK         pkt=166 bytes=28 delay=18ms
+dp-server: NET: 1795225459.159277 IN  DATA        pkt=167 bytes=508
+dp-server: NET: 1795225459.159311 OUT ACK         pkt=167 bytes=28 delay=13ms
+dp-server: NET: 1795225459.180819 IN  DATA        pkt=168 bytes=508
+dp-server: NET: 1795225459.180847 OUT ACK         pkt=168 bytes=28 delay=28ms
+dp-server: NET: 1795225459.225953 IN  DATA        pkt=169 bytes=508
+dp-server: NET: 1795225459.225987 OUT ACK         pkt=169 bytes=28 delay=15ms
+dp-server: NET: 1795225459.251290 IN  DATA        pkt=170 bytes=508
+dp-server: NET: 1795225459.251348 OUT ACK         pkt=170 bytes=28 delay=27ms
+dp-server: NET: 1795225459.313031 IN  DATA        pkt=171 bytes=508
+dp-server: NET: 1795225459.313120 OUT ACK         pkt=171 bytes=28 delay=22ms
+dp-server: NET: 1795225459.356729 IN  DATA        pkt=172 bytes=508
+dp-server: NET: 1795225459.356770 OUT ACK         pkt=172 bytes=28 delay=22ms
+dp-server: NET: 1795225459.398104 IN  DATA        pkt=173 bytes=508
+dp-server: NET: 1795225459.398168 OUT ACK         pkt=173 bytes=28 delay=21ms
+dp-server: NET: 1795225459.432078 IN  DATA        pkt=174 bytes=508
+dp-server: NET: 1795225459.432125 OUT ACK         pkt=174 bytes=28 delay=8ms
+dp-server: NET: 1795225459.468530 IN  DATA        pkt=175 bytes=508
+dp-server: NET: 1795225459.468605 OUT ACK         pkt=175 bytes=28 delay=20ms
+dp-server: NET: 1795225459.517658 IN  DATA        pkt=176 bytes=508
+dp-server: NET: 1795225459.517714 OUT ACK         pkt=176 bytes=28 delay=6ms
+dp-server: NET: 1795225459.539565 IN  DATA        pkt=177 bytes=508
+dp-server: NET: 1795225459.539593 OUT ACK         pkt=177 bytes=28 delay=21ms
+dp-server: NET: 1795225459.588373 IN  DATA        pkt=178 bytes=508
+dp-server: NET: 1795225459.588406 OUT ACK         pkt=178 bytes=28 delay=2ms
+dp-server: NET: 1795225459.621182 IN  DATA        pkt=179 bytes=508
+dp-server: NET: 1795225459.621248 OUT ACK         pkt=179 bytes=28 delay=4ms
+dp-server: NET: 1795225459.637673 IN  DATA        pkt=180 bytes=508
+dp-server: NET: 1795225459.637719 OUT ACK         pkt=180 bytes=28 delay=25ms
+dp-server: NET: 1795225459.691811 IN  DATA        pkt=181 bytes=508
+dp-server: NET: 1795225459.691858 OUT ACK         pkt=181 bytes=28 delay=16ms
+dp-server: NET: 1795225459.743251 IN  DATA        pkt=182 bytes=508
+dp-server: NET: 1795225459.743319 OUT ACK         pkt=182 bytes=28 delay=18ms
+dp-server: NET: 1795225459.770581 IN  DATA        pkt=183 bytes=508
+dp-server: NET: 1795225459.770614 OUT ACK         pkt=183 bytes=28 delay=27ms
+dp-server: NET: 1795225459.821665 IN  DATA        pkt=184 bytes=508
+dp-server: NET: 1795225459.821743 OUT ACK         pkt=184 bytes=28 delay=29ms
+dp-server: NET: 1795225459.856092 IN  DATA        pkt=185 bytes=508
+dp-server: NET: 1795225459.856135 OUT ACK         pkt=185 bytes=28 delay=15ms
+dp-server: NET: 1795225459.892518 IN  DATA        pkt=186 bytes=508
+dp-server: NET: 1795225459.892569 OUT ACK         pkt=186 bytes=28 delay=18ms
+dp-server: NET: 1795225459.914003 IN  DATA        pkt=187 bytes=508
+dp-server: NET: 1795225459.914044 OUT ACK         pkt=187 bytes=28 delay=20ms
+dp-server: NET: 1795225459.938414 IN  DATA        pkt=188 bytes=508
+dp-server: NET: 1795225459.938450 OUT ACK         pkt=188 bytes=28 delay=9ms
+dp-server: NET: 1795225459.970316 IN  DATA        pkt=189 bytes=508
+dp-server: NET: 1795225459.970381 OUT ACK         pkt=189 bytes=28 delay=1ms
+dp-server: NET: 1795225459.989375 IN  DATA        pkt=190 bytes=508
+dp-server: NET: 1795225459.989427 OUT ACK         pkt=190 bytes=28 delay=19ms
+dp-server: NET: 1795225460.015569 IN  DATA        pkt=191 bytes=508
+dp-server: NET: 1795225460.015611 OUT ACK         pkt=191 bytes=28 delay=5ms
+dp-server: NET: 1795225460.045231 IN  DATA        pkt=192 bytes=508
+dp-server: NET: 1795225460.045263 OUT ACK         pkt=192 bytes=28 delay=18ms
+dp-server: NET: 1795225460.098255 IN  DATA        pkt=193 bytes=508
+dp-server: NET: 1795225460.098300 OUT ACK         pkt=193 bytes=28 delay=12ms
+dp-server: NET: 1795225460.119883 IN  DATA        pkt=194 bytes=508
+dp-server: NET: 1795225460.119916 OUT ACK         pkt=194 bytes=28 delay=12ms
+dp-server: NET: 1795225460.151371 IN  DATA        pkt=195 bytes=508
+dp-server: NET: 1795225460.151398 OUT ACK         pkt=195 bytes=28 delay=10ms
+dp-server: NET: 1795225460.182694 IN  DATA        pkt=196 bytes=508
+dp-server: NET: 1795225460.182722 OUT ACK         pkt=196 bytes=28 delay=13ms
+dp-server: NET: 1795225460.221734 IN  DATA        pkt=197 bytes=508
+dp-server: NET: 1795225460.221771 OUT ACK         pkt=197 bytes=28 delay=28ms
+dp-server: NET: 1795225460.263819 IN  DATA        pkt=198 bytes=508
+dp-server: NET: 1795225460.263867 OUT ACK         pkt=198 bytes=28 delay=20ms
+dp-server: NET: 1795225460.301622 IN  DATA        pkt=199 bytes=508
+dp-server: NET: 1795225460.301660 OUT ACK         pkt=199 bytes=28 delay=14ms
+dp-server: NET: 1795225460.329518 IN  DATA        pkt=200 bytes=508
+dp-server: NET: 1795225460.329552 OUT ACK         pkt=200 bytes=28 delay=9ms
+dp-server: NET: 1795225460.374053 IN  DATA        pkt=201 bytes=508
+dp-server: NET: 1795225460.374089 OUT ACK         pkt=201 bytes=28 delay=17ms
+dp-server: NET: 1795225460.429752 IN  DATA        pkt=202 bytes=508
+dp-server: NET: 1795225460.429799 OUT ACK         pkt=202 bytes=28 delay=23ms
+dp-server: NET: 1795225460.476870 IN  DATA        pkt=203 bytes=508
+dp-server: NET: 1795225460.476904 OUT ACK         pkt=203 bytes=28 delay=15ms
+dp-server: NET: 1795225460.502115 IN  DATA        pkt=204 bytes=508
+dp-server: NET: 1795225460.502143 OUT ACK         pkt=204 bytes=28 delay=27ms
+dp-server: NET: 1795225460.566452 IN  DATA        pkt=205 bytes=412
+dp-server: NET: 1795225460.566523 OUT ACK         pkt=205 bytes=28 delay=18ms
+dp-server: received 98304 bytes
+dp-server: verify: PASS
+dp-server: NET: 1795225460.612368 IN  CLOSE       pkt=206 bytes=28
+dp-server: NET: 1795225460.612417 OUT CLOSE_ACK   pkt=206 bytes=28 delay=8ms
+dp-server: close: PASS
+dp-server: network: attempted=207 dropped=0 delivered=207 delayed=197 avg-delay=15.73ms

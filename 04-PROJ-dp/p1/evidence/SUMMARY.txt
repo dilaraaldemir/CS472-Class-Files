@@ -1,0 +1,47 @@
+Part 1 evidence summary
+Generated: Fri Nov 20 20:44:22 EST 2026
+
+DREXEL_ID=da866
+DATA_DROP=23
+ACK_DROP=38
+SIZE_KB=96
+DELAY=30
+
+== Test suite ==
+test: clean PASS
+test: loss10 PASS
+test: delay20 PASS
+test: both20 PASS
+test: loss50 PASS
+test: slowack PASS
+test: all reference tests PASS
+
+== p-data ==
+dp-client: network logging enabled (-v).
+dp-client: sent 98304 bytes in 205 DATA packets, 276.5 ms
+dp-client: close: PASS
+dp-client: network: attempted=208 dropped=1 delivered=207 delayed=0 avg-delay=0.00ms
+dp-server: received 98304 bytes
+dp-server: verify: PASS
+dp-server: close: PASS
+TIMEOUT lines: 1  DUP lines: 0
+
+== p-ack ==
+dp-client: network logging enabled (-v).
+dp-client: sent 98304 bytes in 205 DATA packets, 273.1 ms
+dp-client: close: PASS
+dp-client: network: attempted=208 dropped=0 delivered=208 delayed=0 avg-delay=0.00ms
+dp-server: received 98304 bytes
+dp-server: verify: PASS
+dp-server: close: PASS
+TIMEOUT lines: 1  DUP lines: 1
+
+== p-delay ==
+dp-client: network logging enabled (-v).
+dp-client: sent 98304 bytes in 205 DATA packets, 7148.4 ms
+dp-client: close: PASS
+dp-client: network: attempted=207 dropped=0 delivered=207 delayed=201 avg-delay=14.33ms
+dp-server: received 98304 bytes
+dp-server: verify: PASS
+dp-server: close: PASS
+TIMEOUT lines: 0  DUP lines: 0

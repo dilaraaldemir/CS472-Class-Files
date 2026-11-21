@@ -377,42 +377,91 @@ int dp_accept(dp_connection_t *conn) {
 }
 
 int dp_connect(dp_connection_t *conn) {
-    /* TODO 1: Establish the logical connection reliably.
-     *
-     *   - If conn->connection_id is 0, choose a random non-zero ID.
-     *   - Send a DP_CONNECT packet with packet number 0 and that ID.
-     *   - Wait for a DP_CONNECT_ACK with the same connection ID using
-     *     recv_until() and a deadline from deadline_after(conn->timeout_ms).
-     *   - On timeout, retransmit the SAME CONNECT (same ID, same packet
-     *     number) and log it with log_net_event(conn, "TIMEOUT", ...).
-     *     Give up with -2 after conn->max_retries retransmissions.
-     *   - On success set next_packet_number and recv_next_packet to 1.
-     */
-    fprintf(stderr, "%s: dp_connect: NOT IMPLEMENTED\n",
-            conn && conn->role ? conn->role : "dp-proto");
-    return DP_ERR_NOT_IMPLEMENTED;
+    if (!conn || conn->fd < 0) return -1;
+
+    if (conn->connection_id == 0) {
+        conn->connection_id = (uint32_t)rand();
+        if (conn->connection_id == 0) {
+            conn->connection_id = 1;
+        }
+    }
+
+    dp_packet_t packet = {0};
+    packet.magic = DP_MAGIC;
+    packet.type = DP_CONNECT;
+    packet.connection_id = conn->connection_id;
+    packet.packet_number = 0;
+
+    int retries = 0;
+
+    for (;;) {
+        if (net_simulate(conn, &packet, DP_HEADER_SIZE) < 0) {
+            return -1;
+        }
+
+        long long deadline = deadline_after(conn->timeout_ms);
+
+        for (;;) {
+            dp_packet_t response = {0};
+
+            int rc = recv_until(conn, &response, deadline);
+
+            if (rc < 0) return -1;
+            if (rc == 0) break;
+
+            if (response.type == DP_CONNECT_ACK &&
+                response.connection_id == conn->connection_id &&
+                response.packet_number == 0) {
+
+                conn->next_packet_number = 1;
+                conn->recv_next_packet = 1;
+                return 0;
+            }
+        }
+
+        if (retries >= conn->max_retries) {
+            return -2;
+        }
+
+        log_net_event(conn, "TIMEOUT", &packet, "retransmitting");
+        retries++;
+    }
 }
 
 static int send_data_packet(dp_connection_t *conn, const dp_packet_t *packet) {
-    /* TODO 2: Send one DATA packet using stop-and-wait reliability.
-     *
-     *   - Send the packet through net_simulate().
-     *   - Wait for an ACK with the same connection ID and packet number.
-     *     Use recv_until() with ONE deadline per transmission so that
-     *     unrelated packets (for example a delayed duplicate ACK for an
-     *     earlier packet) are ignored without restarting the timer.
-     *   - On timeout, log a TIMEOUT event and retransmit the exact same PDU.
-     *     Only timeouts count as retries. Return -2 after
-     *     conn->max_retries retransmissions.
-     *   - Return 0 when the matching ACK arrives, -1 on socket error.
-     *
-     * A timeout does NOT prove that the DATA packet was lost: the DATA may
-     * have arrived and its ACK may have been lost or delayed.
-     */
-    (void)packet;
-    fprintf(stderr, "%s: send_data_packet: NOT IMPLEMENTED\n",
-            conn && conn->role ? conn->role : "dp-proto");
-    return DP_ERR_NOT_IMPLEMENTED;
+    if (!conn || !packet) return -1;
+
+    int retries = 0;
+
+    for (;;) {
+        if (net_simulate(conn, packet, DP_HEADER_SIZE + packet->payload_length) < 0) {
+            return -1;
+        }
+
+        long long deadline = deadline_after(conn->timeout_ms);
+
+        for (;;) {
+            dp_packet_t response = {0};
+
+            int rc = recv_until(conn, &response, deadline);
+
+            if (rc < 0) return -1;
+            if (rc == 0) break;
+
+            if (response.type == DP_ACK &&
+                response.connection_id == packet->connection_id &&
+                response.packet_number == packet->packet_number) {
+                return 0;
+            }
+        }
+
+        if (retries >= conn->max_retries) {
+            return -2;
+        }
+
+        log_net_event(conn, "TIMEOUT", packet, "retransmitting");
+        retries++;
+    }
 }
 
 int dp_send(dp_connection_t *conn, const void *buffer, size_t len) {
@@ -447,41 +496,103 @@ int dp_send(dp_connection_t *conn, const void *buffer, size_t len) {
  * first, -1 on socket error, -3 if the message exceeds capacity, and -4 on a
  * protocol violation. */
 int dp_recv(dp_connection_t *conn, void *buffer, size_t capacity, size_t *out_len) {
-    /* TODO 3: Receive and reassemble exactly one logical message.
-     *
-     * Block with recv_packet(conn, &packet, -1) and ignore packets whose
-     * connection ID does not match. Then handle each packet type:
-     *
-     *   DP_CONNECT  Our CONNECT_ACK was lost and the client retried.
-     *               Answer again with send_connect_ack().
-     *   DP_CLOSE    Answer with send_close_ack() and return 1.
-     *   DP_DATA     Compare packet_number with conn->recv_next_packet:
-     *     - smaller: a duplicate you already accepted (its ACK was lost).
-     *                Log it with log_net_event(conn, "DUP", &packet,
-     *                "already delivered, re-ACK"), then re-ACK it with
-     *                send_ack(). Do NOT copy it again.
-     *     - larger:  cannot happen with a correct stop-and-wait sender.
-     *                Ignore it and do NOT ACK it. An ACK tells the sender
-     *                the data was accepted.
-     *     - equal:   the packet you are waiting for. Check that it is on
-     *                stream 0, that message_offset equals the bytes received
-     *                so far, and that message_length is consistent and fits
-     *                in capacity. Copy the payload, advance
-     *                conn->recv_next_packet, and ACK it.
-     *
-     * The message is complete when received == message_length; the final
-     * DATA packet must carry DP_FLAG_FIN. Set *out_len and return 0.
-     *
-     * Return -3 if the message will not fit in capacity and -4 for a
-     * protocol violation (wrong stream, bad offset/length, missing or early
-     * FIN). Return -1 on socket error.
-     */
-    (void)buffer;
-    (void)capacity;
-    (void)out_len;
-    fprintf(stderr, "%s: dp_recv: NOT IMPLEMENTED\n",
-            conn && conn->role ? conn->role : "dp-proto");
-    return DP_ERR_NOT_IMPLEMENTED;
+    if (!conn || !out_len || (!buffer && capacity > 0)) return -1;
+
+    *out_len = 0;
+
+    size_t received = 0;
+    uint32_t message_length = 0;
+    int message_started = 0;
+
+    for (;;) {
+        dp_packet_t packet = {0};
+
+        int rc = recv_packet(conn, &packet, -1);
+
+        if (rc < 0) return -1;
+        if (rc == 0 || rc == 2) continue;
+
+        if (packet.connection_id != conn->connection_id) {
+            continue;
+        }
+
+        if (packet.type == DP_CONNECT) {
+            if (send_connect_ack(conn) < 0) {
+                return -1;
+            }
+            continue;
+        }
+
+        if (packet.type == DP_CLOSE) {
+            if (send_close_ack(conn, packet.packet_number) < 0) {
+                return -1;
+            }
+            return 1;
+        }
+
+        if (packet.type != DP_DATA) {
+            continue;
+        }
+
+        if (packet.packet_number < conn->recv_next_packet) {
+            log_net_event(conn, "DUP", &packet, "already delivered, re-ACK");
+
+            if (send_ack(conn, packet.packet_number) < 0) {
+                return -1;
+            }
+            continue;
+        }
+
+        if (packet.packet_number > conn->recv_next_packet) {
+            continue;
+        }
+
+        if (packet.stream_id != 0 ||
+            packet.message_offset != received) {
+            return -4;
+        }
+
+        if (!message_started) {
+            message_length = packet.message_length;
+            message_started = 1;
+
+            if (message_length > capacity) {
+                return -3;
+            }
+        } else if (packet.message_length != message_length) {
+            return -4;
+        }
+
+        if (packet.payload_length > message_length - received) {
+            return -4;
+        }
+
+        size_t new_received = received + packet.payload_length;
+        int is_complete = (new_received == message_length);
+        int has_fin = (packet.flags & DP_FLAG_FIN) != 0;
+
+        if (has_fin != is_complete) {
+            return -4;
+        }
+
+        if (packet.payload_length > 0) {
+            memcpy((char *)buffer + received,
+                   packet.payload,
+                   packet.payload_length);
+        }
+
+        received = new_received;
+        conn->recv_next_packet++;
+
+        if (send_ack(conn, packet.packet_number) < 0) {
+            return -1;
+        }
+
+        if (is_complete) {
+            *out_len = received;
+            return 0;
+        }
+    }
 }
 
 /* Called by the receiver after dp_recv() completes (provided). Keeps answering
@@ -515,17 +626,45 @@ int dp_wait_for_close(dp_connection_t *conn) {
 }
 
 int dp_close(dp_connection_t *conn) {
-    /* TODO 4: Gracefully close the connection.
-     *
-     * Send DP_CLOSE using the next packet number and wait for a matching
-     * DP_CLOSE_ACK (same connection ID and packet number). Use the same
-     * deadline/timeout/retry pattern as send_data_packet(). If the CLOSE is
-     * dropped or its CLOSE_ACK is lost, retransmit the same CLOSE packet.
-     * Return 0 on success, -2 after conn->max_retries retransmissions.
-     */
-    fprintf(stderr, "%s: dp_close: NOT IMPLEMENTED\n",
-            conn && conn->role ? conn->role : "dp-proto");
-    return DP_ERR_NOT_IMPLEMENTED;
+    if (!conn || conn->fd < 0) return -1;
+
+    dp_packet_t packet = {0};
+    packet.magic = DP_MAGIC;
+    packet.type = DP_CLOSE;
+    packet.connection_id = conn->connection_id;
+    packet.packet_number = conn->next_packet_number;
+
+    int retries = 0;
+
+    for (;;) {
+        if (net_simulate(conn, &packet, DP_HEADER_SIZE) < 0) {
+            return -1;
+        }
+
+        long long deadline = deadline_after(conn->timeout_ms);
+
+        for (;;) {
+            dp_packet_t response = {0};
+
+            int rc = recv_until(conn, &response, deadline);
+
+            if (rc < 0) return -1;
+            if (rc == 0) break;
+
+            if (response.type == DP_CLOSE_ACK &&
+                response.connection_id == conn->connection_id &&
+                response.packet_number == packet.packet_number) {
+                return 0;
+            }
+        }
+
+        if (retries >= conn->max_retries) {
+            return -2;
+        }
+
+        log_net_event(conn, "TIMEOUT", &packet, "retransmitting");
+        retries++;
+    }
 }
 
 void dp_set_network_simulation(dp_connection_t *conn,

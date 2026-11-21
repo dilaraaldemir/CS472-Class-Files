@@ -1,0 +1,284 @@
+       0.000 ms  dp-client: NET: OUT CONNECT     pkt=0 bytes=28 DROP
+     251.046 ms  dp-client: NET: TIMEOUT CONNECT     pkt=0 retransmitting
+     251.099 ms  dp-client: NET: OUT CONNECT     pkt=0 bytes=28
+     251.363 ms  dp-server: NET: IN  CONNECT     pkt=0 bytes=28
+     251.419 ms  dp-server: NET: OUT CONN_ACK    pkt=0 bytes=28 DROP
+     502.351 ms  dp-client: NET: TIMEOUT CONNECT     pkt=0 retransmitting
+     502.429 ms  dp-client: NET: OUT CONNECT     pkt=0 bytes=28
+     502.653 ms  dp-server: NET: IN  CONNECT     pkt=0 bytes=28
+     502.699 ms  dp-server: NET: OUT CONN_ACK    pkt=0 bytes=28
+     502.816 ms  dp-client: NET: IN  CONN_ACK    pkt=0 bytes=28
+     502.864 ms  dp-client: NET: OUT DATA        pkt=1 bytes=508 DROP
+     753.925 ms  dp-client: NET: TIMEOUT DATA        pkt=1 retransmitting
+     754.012 ms  dp-client: NET: OUT DATA        pkt=1 bytes=508
+     754.220 ms  dp-server: NET: IN  DATA        pkt=1 bytes=508
+     754.283 ms  dp-server: NET: OUT ACK         pkt=1 bytes=28 DROP
+    1005.218 ms  dp-client: NET: TIMEOUT DATA        pkt=1 retransmitting
+    1005.295 ms  dp-client: NET: OUT DATA        pkt=1 bytes=508 DROP
+    1256.391 ms  dp-client: NET: TIMEOUT DATA        pkt=1 retransmitting
+    1256.501 ms  dp-client: NET: OUT DATA        pkt=1 bytes=508
+    1256.751 ms  dp-server: NET: IN  DATA        pkt=1 bytes=508
+    1256.817 ms  dp-server: NET: DUP DATA        pkt=1 already delivered, re-ACK
+    1256.847 ms  dp-server: NET: OUT ACK         pkt=1 bytes=28 DROP
+    1507.728 ms  dp-client: NET: TIMEOUT DATA        pkt=1 retransmitting
+    1507.800 ms  dp-client: NET: OUT DATA        pkt=1 bytes=508
+    1508.022 ms  dp-server: NET: IN  DATA        pkt=1 bytes=508
+    1508.072 ms  dp-server: NET: DUP DATA        pkt=1 already delivered, re-ACK
+    1508.103 ms  dp-server: NET: OUT ACK         pkt=1 bytes=28
+    1508.206 ms  dp-client: NET: IN  ACK         pkt=1 bytes=28
+    1508.255 ms  dp-client: NET: OUT DATA        pkt=2 bytes=508 DROP
+    1759.320 ms  dp-client: NET: TIMEOUT DATA        pkt=2 retransmitting
+    1759.395 ms  dp-client: NET: OUT DATA        pkt=2 bytes=508
+    1759.640 ms  dp-server: NET: IN  DATA        pkt=2 bytes=508
+    1759.687 ms  dp-server: NET: OUT ACK         pkt=2 bytes=28
+    1759.789 ms  dp-client: NET: IN  ACK         pkt=2 bytes=28
+    1759.822 ms  dp-client: NET: OUT DATA        pkt=3 bytes=508
+    1759.903 ms  dp-server: NET: IN  DATA        pkt=3 bytes=508
+    1759.935 ms  dp-server: NET: OUT ACK         pkt=3 bytes=28 DROP
+    2010.913 ms  dp-client: NET: TIMEOUT DATA        pkt=3 retransmitting
+    2010.997 ms  dp-client: NET: OUT DATA        pkt=3 bytes=508 DROP
+    2262.083 ms  dp-client: NET: TIMEOUT DATA        pkt=3 retransmitting
+    2262.186 ms  dp-client: NET: OUT DATA        pkt=3 bytes=508
+    2262.399 ms  dp-server: NET: IN  DATA        pkt=3 bytes=508
+    2262.455 ms  dp-server: NET: DUP DATA        pkt=3 already delivered, re-ACK
+    2262.481 ms  dp-server: NET: OUT ACK         pkt=3 bytes=28
+    2262.595 ms  dp-client: NET: IN  ACK         pkt=3 bytes=28
+    2262.631 ms  dp-client: NET: OUT DATA        pkt=4 bytes=508 DROP
+    2513.685 ms  dp-client: NET: TIMEOUT DATA        pkt=4 retransmitting
+    2513.753 ms  dp-client: NET: OUT DATA        pkt=4 bytes=508
+    2513.968 ms  dp-server: NET: IN  DATA        pkt=4 bytes=508
+    2514.020 ms  dp-server: NET: OUT ACK         pkt=4 bytes=28 DROP
+    2765.013 ms  dp-client: NET: TIMEOUT DATA        pkt=4 retransmitting
+    2765.087 ms  dp-client: NET: OUT DATA        pkt=4 bytes=508 DROP
+    3016.172 ms  dp-client: NET: TIMEOUT DATA        pkt=4 retransmitting
+    3016.278 ms  dp-client: NET: OUT DATA        pkt=4 bytes=508 DROP
+    3267.356 ms  dp-client: NET: TIMEOUT DATA        pkt=4 retransmitting
+    3267.463 ms  dp-client: NET: OUT DATA        pkt=4 bytes=508
+    3267.678 ms  dp-server: NET: IN  DATA        pkt=4 bytes=508
+    3267.737 ms  dp-server: NET: DUP DATA        pkt=4 already delivered, re-ACK
+    3267.771 ms  dp-server: NET: OUT ACK         pkt=4 bytes=28
+    3267.877 ms  dp-client: NET: IN  ACK         pkt=4 bytes=28
+    3267.908 ms  dp-client: NET: OUT DATA        pkt=5 bytes=508 DROP
+    3518.966 ms  dp-client: NET: TIMEOUT DATA        pkt=5 retransmitting
+    3519.036 ms  dp-client: NET: OUT DATA        pkt=5 bytes=508 DROP
+    3770.160 ms  dp-client: NET: TIMEOUT DATA        pkt=5 retransmitting
+    3770.265 ms  dp-client: NET: OUT DATA        pkt=5 bytes=508
+    3770.471 ms  dp-server: NET: IN  DATA        pkt=5 bytes=508
+    3770.529 ms  dp-server: NET: OUT ACK         pkt=5 bytes=28 DROP
+    4021.453 ms  dp-client: NET: TIMEOUT DATA        pkt=5 retransmitting
+    4021.507 ms  dp-client: NET: OUT DATA        pkt=5 bytes=508
+    4021.661 ms  dp-server: NET: IN  DATA        pkt=5 bytes=508
+    4021.700 ms  dp-server: NET: DUP DATA        pkt=5 already delivered, re-ACK
+    4021.721 ms  dp-server: NET: OUT ACK         pkt=5 bytes=28 DROP
+    4272.654 ms  dp-client: NET: TIMEOUT DATA        pkt=5 retransmitting
+    4272.731 ms  dp-client: NET: OUT DATA        pkt=5 bytes=508
+    4272.953 ms  dp-server: NET: IN  DATA        pkt=5 bytes=508
+    4273.002 ms  dp-server: NET: DUP DATA        pkt=5 already delivered, re-ACK
+    4273.036 ms  dp-server: NET: OUT ACK         pkt=5 bytes=28 DROP
+    4523.954 ms  dp-client: NET: TIMEOUT DATA        pkt=5 retransmitting
+    4524.032 ms  dp-client: NET: OUT DATA        pkt=5 bytes=508
+    4524.234 ms  dp-server: NET: IN  DATA        pkt=5 bytes=508
+    4524.282 ms  dp-server: NET: DUP DATA        pkt=5 already delivered, re-ACK
+    4524.309 ms  dp-server: NET: OUT ACK         pkt=5 bytes=28 DROP
+    4775.231 ms  dp-client: NET: TIMEOUT DATA        pkt=5 retransmitting
+    4775.305 ms  dp-client: NET: OUT DATA        pkt=5 bytes=508
+    4775.517 ms  dp-server: NET: IN  DATA        pkt=5 bytes=508
+    4775.566 ms  dp-server: NET: DUP DATA        pkt=5 already delivered, re-ACK
+    4775.593 ms  dp-server: NET: OUT ACK         pkt=5 bytes=28
+    4775.695 ms  dp-client: NET: IN  ACK         pkt=5 bytes=28
+    4775.736 ms  dp-client: NET: OUT DATA        pkt=6 bytes=508 DROP
+    5026.799 ms  dp-client: NET: TIMEOUT DATA        pkt=6 retransmitting
+    5026.876 ms  dp-client: NET: OUT DATA        pkt=6 bytes=508 DROP
+    5277.963 ms  dp-client: NET: TIMEOUT DATA        pkt=6 retransmitting
+    5278.063 ms  dp-client: NET: OUT DATA        pkt=6 bytes=508 DROP
+    5529.150 ms  dp-client: NET: TIMEOUT DATA        pkt=6 retransmitting
+    5529.241 ms  dp-client: NET: OUT DATA        pkt=6 bytes=508
+    5529.457 ms  dp-server: NET: IN  DATA        pkt=6 bytes=508
+    5529.511 ms  dp-server: NET: OUT ACK         pkt=6 bytes=28 DROP
+    5780.439 ms  dp-client: NET: TIMEOUT DATA        pkt=6 retransmitting
+    5780.553 ms  dp-client: NET: OUT DATA        pkt=6 bytes=508
+    5780.771 ms  dp-server: NET: IN  DATA        pkt=6 bytes=508
+    5780.822 ms  dp-server: NET: DUP DATA        pkt=6 already delivered, re-ACK
+    5780.850 ms  dp-server: NET: OUT ACK         pkt=6 bytes=28
+    5780.946 ms  dp-client: NET: IN  ACK         pkt=6 bytes=28
+    5780.980 ms  dp-client: NET: OUT DATA        pkt=7 bytes=508
+    5781.057 ms  dp-server: NET: IN  DATA        pkt=7 bytes=508
+    5781.088 ms  dp-server: NET: OUT ACK         pkt=7 bytes=28 DROP
+    6032.067 ms  dp-client: NET: TIMEOUT DATA        pkt=7 retransmitting
+    6032.147 ms  dp-client: NET: OUT DATA        pkt=7 bytes=508 DROP
+    6283.240 ms  dp-client: NET: TIMEOUT DATA        pkt=7 retransmitting
+    6283.341 ms  dp-client: NET: OUT DATA        pkt=7 bytes=508 DROP
+    6534.422 ms  dp-client: NET: TIMEOUT DATA        pkt=7 retransmitting
+    6534.532 ms  dp-client: NET: OUT DATA        pkt=7 bytes=508
+    6534.732 ms  dp-server: NET: IN  DATA        pkt=7 bytes=508
+    6534.784 ms  dp-server: NET: DUP DATA        pkt=7 already delivered, re-ACK
+    6534.811 ms  dp-server: NET: OUT ACK         pkt=7 bytes=28 DROP
+    6785.794 ms  dp-client: NET: TIMEOUT DATA        pkt=7 retransmitting
+    6785.868 ms  dp-client: NET: OUT DATA        pkt=7 bytes=508 DROP
+    7036.998 ms  dp-client: NET: TIMEOUT DATA        pkt=7 retransmitting
+    7037.108 ms  dp-client: NET: OUT DATA        pkt=7 bytes=508 DROP
+    7288.191 ms  dp-client: NET: TIMEOUT DATA        pkt=7 retransmitting
+    7288.302 ms  dp-client: NET: OUT DATA        pkt=7 bytes=508 DROP
+    7539.393 ms  dp-client: NET: TIMEOUT DATA        pkt=7 retransmitting
+    7539.509 ms  dp-client: NET: OUT DATA        pkt=7 bytes=508
+    7539.736 ms  dp-server: NET: IN  DATA        pkt=7 bytes=508
+    7539.793 ms  dp-server: NET: DUP DATA        pkt=7 already delivered, re-ACK
+    7539.824 ms  dp-server: NET: OUT ACK         pkt=7 bytes=28 DROP
+    7790.761 ms  dp-client: NET: TIMEOUT DATA        pkt=7 retransmitting
+    7790.836 ms  dp-client: NET: OUT DATA        pkt=7 bytes=508 DROP
+    8041.917 ms  dp-client: NET: TIMEOUT DATA        pkt=7 retransmitting
+    8042.015 ms  dp-client: NET: OUT DATA        pkt=7 bytes=508
+    8042.246 ms  dp-server: NET: IN  DATA        pkt=7 bytes=508
+    8042.300 ms  dp-server: NET: DUP DATA        pkt=7 already delivered, re-ACK
+    8042.332 ms  dp-server: NET: OUT ACK         pkt=7 bytes=28 DROP
+    8293.230 ms  dp-client: NET: TIMEOUT DATA        pkt=7 retransmitting
+    8293.305 ms  dp-client: NET: OUT DATA        pkt=7 bytes=508
+    8293.512 ms  dp-server: NET: IN  DATA        pkt=7 bytes=508
+    8293.559 ms  dp-server: NET: DUP DATA        pkt=7 already delivered, re-ACK
+    8293.594 ms  dp-server: NET: OUT ACK         pkt=7 bytes=28
+    8293.738 ms  dp-client: NET: IN  ACK         pkt=7 bytes=28
+    8293.770 ms  dp-client: NET: OUT DATA        pkt=8 bytes=508
+    8293.855 ms  dp-server: NET: IN  DATA        pkt=8 bytes=508
+    8293.889 ms  dp-server: NET: OUT ACK         pkt=8 bytes=28 DROP
+    8544.935 ms  dp-client: NET: TIMEOUT DATA        pkt=8 retransmitting
+    8545.010 ms  dp-client: NET: OUT DATA        pkt=8 bytes=508
+    8545.235 ms  dp-server: NET: IN  DATA        pkt=8 bytes=508
+    8545.285 ms  dp-server: NET: DUP DATA        pkt=8 already delivered, re-ACK
+    8545.312 ms  dp-server: NET: OUT ACK         pkt=8 bytes=28
+    8545.416 ms  dp-client: NET: IN  ACK         pkt=8 bytes=28
+    8545.446 ms  dp-client: NET: OUT DATA        pkt=9 bytes=508 DROP
+    8796.505 ms  dp-client: NET: TIMEOUT DATA        pkt=9 retransmitting
+    8796.581 ms  dp-client: NET: OUT DATA        pkt=9 bytes=508
+    8796.804 ms  dp-server: NET: IN  DATA        pkt=9 bytes=508
+    8796.855 ms  dp-server: NET: OUT ACK         pkt=9 bytes=28 DROP
+    9047.857 ms  dp-client: NET: TIMEOUT DATA        pkt=9 retransmitting
+    9047.933 ms  dp-client: NET: OUT DATA        pkt=9 bytes=508 DROP
+    9299.013 ms  dp-client: NET: TIMEOUT DATA        pkt=9 retransmitting
+    9299.122 ms  dp-client: NET: OUT DATA        pkt=9 bytes=508
+    9299.343 ms  dp-server: NET: IN  DATA        pkt=9 bytes=508
+    9299.403 ms  dp-server: NET: DUP DATA        pkt=9 already delivered, re-ACK
+    9299.441 ms  dp-server: NET: OUT ACK         pkt=9 bytes=28
+    9299.546 ms  dp-client: NET: IN  ACK         pkt=9 bytes=28
+    9299.580 ms  dp-client: NET: OUT DATA        pkt=10 bytes=508 DROP
+    9550.635 ms  dp-client: NET: TIMEOUT DATA        pkt=10 retransmitting
+    9550.717 ms  dp-client: NET: OUT DATA        pkt=10 bytes=508
+    9550.925 ms  dp-server: NET: IN  DATA        pkt=10 bytes=508
+    9550.980 ms  dp-server: NET: OUT ACK         pkt=10 bytes=28 DROP
+    9801.910 ms  dp-client: NET: TIMEOUT DATA        pkt=10 retransmitting
+    9801.982 ms  dp-client: NET: OUT DATA        pkt=10 bytes=508 DROP
+   10053.057 ms  dp-client: NET: TIMEOUT DATA        pkt=10 retransmitting
+   10053.168 ms  dp-client: NET: OUT DATA        pkt=10 bytes=508 DROP
+   10304.259 ms  dp-client: NET: TIMEOUT DATA        pkt=10 retransmitting
+   10304.380 ms  dp-client: NET: OUT DATA        pkt=10 bytes=508 DROP
+   10555.477 ms  dp-client: NET: TIMEOUT DATA        pkt=10 retransmitting
+   10555.590 ms  dp-client: NET: OUT DATA        pkt=10 bytes=508 DROP
+   10806.735 ms  dp-client: NET: TIMEOUT DATA        pkt=10 retransmitting
+   10806.854 ms  dp-client: NET: OUT DATA        pkt=10 bytes=508 DROP
+   11057.936 ms  dp-client: NET: TIMEOUT DATA        pkt=10 retransmitting
+   11058.042 ms  dp-client: NET: OUT DATA        pkt=10 bytes=508
+   11058.262 ms  dp-server: NET: IN  DATA        pkt=10 bytes=508
+   11058.320 ms  dp-server: NET: DUP DATA        pkt=10 already delivered, re-ACK
+   11058.354 ms  dp-server: NET: OUT ACK         pkt=10 bytes=28 DROP
+   11309.306 ms  dp-client: NET: TIMEOUT DATA        pkt=10 retransmitting
+   11309.380 ms  dp-client: NET: OUT DATA        pkt=10 bytes=508 DROP
+   11560.474 ms  dp-client: NET: TIMEOUT DATA        pkt=10 retransmitting
+   11560.570 ms  dp-client: NET: OUT DATA        pkt=10 bytes=508 DROP
+   11811.659 ms  dp-client: NET: TIMEOUT DATA        pkt=10 retransmitting
+   11811.767 ms  dp-client: NET: OUT DATA        pkt=10 bytes=508
+   11812.020 ms  dp-server: NET: IN  DATA        pkt=10 bytes=508
+   11812.074 ms  dp-server: NET: DUP DATA        pkt=10 already delivered, re-ACK
+   11812.105 ms  dp-server: NET: OUT ACK         pkt=10 bytes=28 DROP
+   12063.017 ms  dp-client: NET: TIMEOUT DATA        pkt=10 retransmitting
+   12063.108 ms  dp-client: NET: OUT DATA        pkt=10 bytes=508
+   12063.315 ms  dp-server: NET: IN  DATA        pkt=10 bytes=508
+   12063.361 ms  dp-server: NET: DUP DATA        pkt=10 already delivered, re-ACK
+   12063.391 ms  dp-server: NET: OUT ACK         pkt=10 bytes=28
+   12063.490 ms  dp-client: NET: IN  ACK         pkt=10 bytes=28
+   12063.520 ms  dp-client: NET: OUT DATA        pkt=11 bytes=508
+   12063.595 ms  dp-server: NET: IN  DATA        pkt=11 bytes=508
+   12063.624 ms  dp-server: NET: OUT ACK         pkt=11 bytes=28
+   12063.695 ms  dp-client: NET: IN  ACK         pkt=11 bytes=28
+   12063.722 ms  dp-client: NET: OUT DATA        pkt=12 bytes=508
+   12063.791 ms  dp-server: NET: IN  DATA        pkt=12 bytes=508
+   12063.817 ms  dp-server: NET: OUT ACK         pkt=12 bytes=28
+   12063.886 ms  dp-client: NET: IN  ACK         pkt=12 bytes=28
+   12063.914 ms  dp-client: NET: OUT DATA        pkt=13 bytes=508 DROP
+   12315.033 ms  dp-client: NET: TIMEOUT DATA        pkt=13 retransmitting
+   12315.103 ms  dp-client: NET: OUT DATA        pkt=13 bytes=508
+   12315.317 ms  dp-server: NET: IN  DATA        pkt=13 bytes=508
+   12315.369 ms  dp-server: NET: OUT ACK         pkt=13 bytes=28
+   12315.474 ms  dp-client: NET: IN  ACK         pkt=13 bytes=28
+   12315.504 ms  dp-client: NET: OUT DATA        pkt=14 bytes=508 DROP
+   12566.563 ms  dp-client: NET: TIMEOUT DATA        pkt=14 retransmitting
+   12566.654 ms  dp-client: NET: OUT DATA        pkt=14 bytes=508 DROP
+   12817.798 ms  dp-client: NET: TIMEOUT DATA        pkt=14 retransmitting
+   12817.913 ms  dp-client: NET: OUT DATA        pkt=14 bytes=508 DROP
+   13068.997 ms  dp-client: NET: TIMEOUT DATA        pkt=14 retransmitting
+   13069.101 ms  dp-client: NET: OUT DATA        pkt=14 bytes=508 DROP
+   13320.180 ms  dp-client: NET: TIMEOUT DATA        pkt=14 retransmitting
+   13320.268 ms  dp-client: NET: OUT DATA        pkt=14 bytes=508
+   13320.470 ms  dp-server: NET: IN  DATA        pkt=14 bytes=508
+   13320.528 ms  dp-server: NET: OUT ACK         pkt=14 bytes=28
+   13320.637 ms  dp-client: NET: IN  ACK         pkt=14 bytes=28
+   13320.678 ms  dp-client: NET: OUT DATA        pkt=15 bytes=508
+   13320.765 ms  dp-server: NET: IN  DATA        pkt=15 bytes=508
+   13320.798 ms  dp-server: NET: OUT ACK         pkt=15 bytes=28 DROP
+   13571.841 ms  dp-client: NET: TIMEOUT DATA        pkt=15 retransmitting
+   13571.926 ms  dp-client: NET: OUT DATA        pkt=15 bytes=508
+   13572.150 ms  dp-server: NET: IN  DATA        pkt=15 bytes=508
+   13572.203 ms  dp-server: NET: DUP DATA        pkt=15 already delivered, re-ACK
+   13572.231 ms  dp-server: NET: OUT ACK         pkt=15 bytes=28 DROP
+   13823.132 ms  dp-client: NET: TIMEOUT DATA        pkt=15 retransmitting
+   13823.216 ms  dp-client: NET: OUT DATA        pkt=15 bytes=508 DROP
+   14074.303 ms  dp-client: NET: TIMEOUT DATA        pkt=15 retransmitting
+   14074.407 ms  dp-client: NET: OUT DATA        pkt=15 bytes=508
+   14074.636 ms  dp-server: NET: IN  DATA        pkt=15 bytes=508
+   14074.684 ms  dp-server: NET: DUP DATA        pkt=15 already delivered, re-ACK
+   14074.718 ms  dp-server: NET: OUT ACK         pkt=15 bytes=28 DROP
+   14325.612 ms  dp-client: NET: TIMEOUT DATA        pkt=15 retransmitting
+   14325.684 ms  dp-client: NET: OUT DATA        pkt=15 bytes=508 DROP
+   14576.809 ms  dp-client: NET: TIMEOUT DATA        pkt=15 retransmitting
+   14576.892 ms  dp-client: NET: OUT DATA        pkt=15 bytes=508 DROP
+   14827.973 ms  dp-client: NET: TIMEOUT DATA        pkt=15 retransmitting
+   14828.076 ms  dp-client: NET: OUT DATA        pkt=15 bytes=508 DROP
+   15079.212 ms  dp-client: NET: TIMEOUT DATA        pkt=15 retransmitting
+   15079.320 ms  dp-client: NET: OUT DATA        pkt=15 bytes=508 DROP
+   15330.403 ms  dp-client: NET: TIMEOUT DATA        pkt=15 retransmitting
+   15330.516 ms  dp-client: NET: OUT DATA        pkt=15 bytes=508 DROP
+   15581.587 ms  dp-client: NET: TIMEOUT DATA        pkt=15 retransmitting
+   15581.692 ms  dp-client: NET: OUT DATA        pkt=15 bytes=508 DROP
+   15832.783 ms  dp-client: NET: TIMEOUT DATA        pkt=15 retransmitting
+   15832.890 ms  dp-client: NET: OUT DATA        pkt=15 bytes=508 DROP
+   16084.035 ms  dp-client: NET: TIMEOUT DATA        pkt=15 retransmitting
+   16084.143 ms  dp-client: NET: OUT DATA        pkt=15 bytes=508
+   16084.370 ms  dp-server: NET: IN  DATA        pkt=15 bytes=508
+   16084.428 ms  dp-server: NET: DUP DATA        pkt=15 already delivered, re-ACK
+   16084.457 ms  dp-server: NET: OUT ACK         pkt=15 bytes=28
+   16084.558 ms  dp-client: NET: IN  ACK         pkt=15 bytes=28
+   16084.594 ms  dp-client: NET: OUT DATA        pkt=16 bytes=508 DROP
+   16335.658 ms  dp-client: NET: TIMEOUT DATA        pkt=16 retransmitting
+   16335.742 ms  dp-client: NET: OUT DATA        pkt=16 bytes=508
+   16335.967 ms  dp-server: NET: IN  DATA        pkt=16 bytes=508
+   16336.024 ms  dp-server: NET: OUT ACK         pkt=16 bytes=28
+   16336.132 ms  dp-client: NET: IN  ACK         pkt=16 bytes=28
+   16336.170 ms  dp-client: NET: OUT DATA        pkt=17 bytes=508 DROP
+   16587.232 ms  dp-client: NET: TIMEOUT DATA        pkt=17 retransmitting
+   16587.307 ms  dp-client: NET: OUT DATA        pkt=17 bytes=508
+   16587.530 ms  dp-server: NET: IN  DATA        pkt=17 bytes=508
+   16587.585 ms  dp-server: NET: OUT ACK         pkt=17 bytes=28 DROP
+   16838.520 ms  dp-client: NET: TIMEOUT DATA        pkt=17 retransmitting
+   16838.608 ms  dp-client: NET: OUT DATA        pkt=17 bytes=508
+   16838.825 ms  dp-server: NET: IN  DATA        pkt=17 bytes=508
+   16838.875 ms  dp-server: NET: DUP DATA        pkt=17 already delivered, re-ACK
+   16838.909 ms  dp-server: NET: OUT ACK         pkt=17 bytes=28
+   16839.017 ms  dp-client: NET: IN  ACK         pkt=17 bytes=28
+   16839.057 ms  dp-client: NET: OUT DATA        pkt=18 bytes=60
+   16839.141 ms  dp-server: NET: IN  DATA        pkt=18 bytes=60
+   16839.171 ms  dp-server: NET: OUT ACK         pkt=18 bytes=28
+   16839.242 ms  dp-client: NET: IN  ACK         pkt=18 bytes=28
+   16839.365 ms  dp-client: NET: OUT CLOSE       pkt=19 bytes=28 DROP
+   17090.425 ms  dp-client: NET: TIMEOUT CLOSE       pkt=19 retransmitting
+   17090.498 ms  dp-client: NET: OUT CLOSE       pkt=19 bytes=28
+   17090.707 ms  dp-server: NET: IN  CLOSE       pkt=19 bytes=28
+   17090.758 ms  dp-server: NET: OUT CLOSE_ACK   pkt=19 bytes=28
+   17090.861 ms  dp-client: NET: IN  CLOSE_ACK   pkt=19 bytes=28
