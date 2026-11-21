@@ -1,12 +1,17 @@
 # dp Project, Part 1: Interpretation Questions
 
-**Name:**
-**Drexel ID:**
+**Name: Dilara Aldemir**
+**Drexel ID: da866**
 **Parameters** (paste the output of `./params.sh <your-id>`):
 
-```text
-
 ```
+DREXEL_ID=da866
+DATA_DROP=23
+ACK_DROP=38
+SIZE_KB=96
+DELAY=30
+```
+
 
 ## Ground rules
 
@@ -28,14 +33,26 @@ grep -v NET evidence/client-p-delay.txt            # status lines only
 ## P. Prediction (5 points)
 
 **Complete and commit this section BEFORE you run `make evidence`.** Use only your parameters and your understanding of the protocol. The TA checks that this commit comes before the commit that adds `evidence/`. You are graded on your reasoning, not on whether you turn out to be right.
-
+*
 1. In your `p-data` run the client loses DATA packet `DATA_DROP` once. Describe, step by step, what the client and server will do from that moment until packet `DATA_DROP + 1` is sent. Will the server log a `DUP`? Why or why not?
+The client sends DATA packet 23, but the packet is dropped in transit. Since the client fails to get the ACK from the server within 250 ms, it sends packet 23 again with the same packet number. This is the first time that the packet reaches the server, which processes it and responds with an ACK. The client then sends packet 24. The server does not log a duplicate because packet 23 did not reach it before.
+
 2. In your `p-ack` run the server loses the ACK for packet `ACK_DROP` once. Same question: step by step, and will the server log a `DUP`?
+Packet 38 is transmitted by the client and received and processed by the server. An ACK is sent by the server, but the ACK is dropped on the way by the network. The client will time out and resend packet 38. As packet 38 has been processed by the server earlier, the server will recognize the duplicate and respond with an ACK without processing the payload for the second time. Packet 39 will then be transmitted by the client.
+
 3. From the client's point of view (only what the client can observe), will these two runs look different? Why?
+The two transmissions would be virtually identical from the perspective of the client. In both instances, the client would transmit a DATA packet, fail to receive its ACK within the allotted time, resend the DATA packet, and finally receive the ACK. The client would not be able to differentiate which was lost.
+
 4. Your `p-delay` run sends `SIZE_KB` KB with a random delay of 0 to `DELAY` ms on every packet in each direction. Estimate how long the transfer will take. Show your arithmetic.
+Transfer size: 96 KB, i.e., 96 x 1024 = 98,304 bytes.
+With max. payload per DATA packet as 480 bytes:
 
-*Your prediction:*
+98,304 ÷ 480 = 204.8, thus, 205 DATA packets would be required.
 
+Average random delay in each direction would be 30 ÷ 2 = 15 ms, so that each DATA/ACK transaction requires approximately 15 + 15 = 30 ms.
+
+205 x 30 ms = 6,150 ms = 6.15 seconds.
+*
 ---
 
 ## 1. A timeout is not proof of loss (8 points)
